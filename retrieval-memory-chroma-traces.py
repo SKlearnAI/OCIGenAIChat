@@ -17,7 +17,7 @@ os.environ["LANGCHAIN_PROJECT"] = f"TestUser10 - {unique_id}"
 os.environ["LANGCHAIN_ENDPOINT"] = properties.getlangChainEndpoint()
 os.environ["LANGCHAIN_API_KEY"] = properties.getLangChainKey()
 
-#In this demo we will explore using RetirvalQA chain to retrieve relevant documents and send these as a context in a query.
+#Let us explore RetirvalQA chain to retrieve relevant documents and send these as a context in a query.
 # We will use Chroma vectorstore.
 
 #Step 1 - setup OCI Generative AI llm
@@ -30,11 +30,11 @@ llm = ChatOCIGenAI(
     model_kwargs={"max_tokens":400}
 )
 
-#Step 2 - here we connect to a chromadb server. we need to run the chromadb server before we connect to it
+#Step 2 - Connect to a chromadb server. we need to run the chromadb server before we connect to it
 
 client = chromadb.HttpClient(host="127.0.0.1",settings=Settings(allow_reset=True))
 
-#Step 3 - here we crete embeddings model
+#Step 3 - Crete embeddings using OCIGenAIEmbeddings
 
 embeddings = OCIGenAIEmbeddings(
     model_id=properties.getEmbeddingModelName(),
@@ -42,7 +42,7 @@ embeddings = OCIGenAIEmbeddings(
     compartment_id=properties.getCompartment(),
 )
 
-#Step 4 - here we create a retriever that gets relevant documents (similar in meaning to a query)
+#Step 4 - Create a retriever that gets relevant documents (similar in meaning to a query)
 
 db = Chroma(client=client, embedding_function=embeddings)
 
@@ -55,12 +55,12 @@ def pretty_print_docs(docs):
         )
     )
 
-#Step 5 - here we create a memory to remember chat messages.
+#Step 5 - Create a memory object to remember chat messages.
 
 memory = ConversationBufferMemory(llm=llm, memory_key="chat_history", return_messages=True, output_key='answer')
 
 
-#Step 6 - here we create a chain that uses llm, retriever and memory.
+#Step 6 - Create a chain that uses llm, retriever and memory.
 
 #You can also define the chain type as one of the four options: “stuff”, “map reduce”, “refine”, “map_rerank”.
 
