@@ -1,7 +1,7 @@
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 import chromadb
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 from chromadb.config import Settings
 from langchain_community.chat_models.oci_generative_ai import ChatOCIGenAI
 from langchain_community.embeddings import OCIGenAIEmbeddings
