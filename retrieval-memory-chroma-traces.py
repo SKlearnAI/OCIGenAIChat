@@ -13,7 +13,7 @@ properties = LoadProperties()
 
 unique_id = uuid4().hex[0:8]
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
-os.environ["LANGCHAIN_PROJECT"] = f"Test111 - {unique_id}"
+os.environ["LANGCHAIN_PROJECT"] = f"TestUser10 - {unique_id}"
 os.environ["LANGCHAIN_ENDPOINT"] = properties.getlangChainEndpoint()
 os.environ["LANGCHAIN_API_KEY"] = properties.getLangChainKey()
 
