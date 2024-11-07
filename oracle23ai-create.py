@@ -12,7 +12,7 @@ print("Successfully imported libraries and modules")
 properties = LoadProperties()
 #Declare username and password and dsn (data connection string)
 username = "ADMIN"
-password = "Iz2yIlEMo37Wf5HgYXApmNr2I"
+password = properties.getDBPassword()
 dsn = '''(description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.us-ashburn-1.oraclecloud.com))(connect_data=(service_name=g620084201a219b_lgjp26j8kjiikxu3_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))'''
 
 # Connect to the database
@@ -48,7 +48,7 @@ def chunks_to_docs_wrapper(row: dict) -> Document:
 # RAG Step 4: Create metadata wrapper to store additional information in the vector store
 docs = [chunks_to_docs_wrapper({'id': str(page_num), 'link': f'Page {page_num}', 'text': text}) for page_num, text in enumerate(chunks)]
 
-COMPARTMENT_OCID = COMPARTMENT_OCID = properties.getCompartment()
+COMPARTMENT_OCID = properties.getCompartment()
 embed_model = OCIGenAIEmbeddings(
     model_id=properties.getEmbeddingModelName(),
     service_endpoint=properties.getEndpoint(),

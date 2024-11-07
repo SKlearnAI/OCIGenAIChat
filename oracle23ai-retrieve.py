@@ -13,7 +13,8 @@ properties = LoadProperties()
 # Declare username and password and dsn (data connection string)
 username = "ADMIN"
 password = properties.getDBPassword()
-dsn = '''(description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.us-ashburn-1.oraclecloud.com))(connect_data=(service_name=g620084201a219b_lgjp26j8kjiikxu3_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))'''
+dsn = properties.getDBDSN()
+# dsn = '''(description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.us-ashburn-1.oraclecloud.com))(connect_data=(service_name=g620084201a219b_lgjp26j8kjiikxu3_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))'''
 
 # Connect to the database
 try:
@@ -23,7 +24,7 @@ except Exception as e:
     print("Connection failed!")
 
 # Retrieval Step 1 - Build the llm, embed_model and prompt to query the document
-COMPARTMENT_OCID = COMPARTMENT_OCID = properties.getCompartment()
+COMPARTMENT_OCID = "ocid1.compartment.oc1..aaaaaaaa66xctsplwbmxlabjytax7od3xdtzn74xcoqxh53b7ilbxaoccgaa"
 
 llm = ChatOCIGenAI(
     model_id=properties.getModelName(),
