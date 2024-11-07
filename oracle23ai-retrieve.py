@@ -12,7 +12,7 @@ print("Successfully imported libraries and modules")
 properties = LoadProperties()
 # Declare username and password and dsn (data connection string)
 username = "ADMIN"
-password = "Iz2yIlEMo37Wf5HgYXApmNr2I"
+password = properties.getDBPassword()
 dsn = '''(description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.us-ashburn-1.oraclecloud.com))(connect_data=(service_name=g620084201a219b_lgjp26j8kjiikxu3_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))'''
 
 # Connect to the database
