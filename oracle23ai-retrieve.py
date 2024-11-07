@@ -23,7 +23,7 @@ except Exception as e:
     print("Connection failed!")
 
 # Retrieval Step 1 - Build the llm, embed_model and prompt to query the document
-COMPARTMENT_OCID = "ocid1.compartment.oc1..aaaaaaaa66xctsplwbmxlabjytax7od3xdtzn74xcoqxh53b7ilbxaoccgaa"
+COMPARTMENT_OCID = COMPARTMENT_OCID = properties.getCompartment()
 
 llm = ChatOCIGenAI(
     model_id=properties.getModelName(),
