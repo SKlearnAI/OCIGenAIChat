@@ -4,5 +4,6 @@
 "compartment_ocid":"<Your Compartment OCID",
 "langchain_endpoint":"https://api.smith.langchain.com",
 "oracle_23ai_password":"Your ADB Password",
+"oracle_23ai_dsn":"(description= <ADB Connection String>)",
 "langchain_key":"Your Langchain Key"
 }
