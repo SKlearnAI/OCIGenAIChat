@@ -3,5 +3,6 @@
 "endpoint":"https://inference.generativeai.us-chicago-1.oci.oraclecloud.com",
 "compartment_ocid":"<Your Compartment OCID",
 "langchain_endpoint":"https://api.smith.langchain.com",
+"oracle_23ai_password":"Your ADB Password",
 "langchain_key":"Your Langchain Key"
 }
