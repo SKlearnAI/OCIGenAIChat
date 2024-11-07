@@ -48,7 +48,7 @@ def chunks_to_docs_wrapper(row: dict) -> Document:
 # RAG Step 4: Create metadata wrapper to store additional information in the vector store
 docs = [chunks_to_docs_wrapper({'id': str(page_num), 'link': f'Page {page_num}', 'text': text}) for page_num, text in enumerate(chunks)]
 
-COMPARTMENT_OCID = "ocid1.compartment.oc1..aaaaaaaa66xctsplwbmxlabjytax7od3xdtzn74xcoqxh53b7ilbxaoccgaa"
+COMPARTMENT_OCID = COMPARTMENT_OCID = properties.getCompartment()
 embed_model = OCIGenAIEmbeddings(
     model_id=properties.getEmbeddingModelName(),
     service_endpoint=properties.getEndpoint(),
